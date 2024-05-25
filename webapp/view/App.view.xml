@@ -1,5 +1,36 @@
 <mvc:View controllerName="com.sap.flight.controller.App"
-    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
-    xmlns="sap.m">
-   <App id="app"></App>
+  xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+  xmlns:tnt="sap.tnt"
+  xmlns="sap.m">
+  <tnt:ToolPage
+    id="app"
+    class="sapUiDemoToolPage">
+    <tnt:header>
+      <tnt:ToolHeader id="app-toolHeader">
+ 
+      </tnt:ToolHeader>
+    </tnt:header>
+    <tnt:sideContent>
+      <tnt:SideNavigation id="app-sideNavigation"
+        expanded="true"
+        selectedKey="">
+        <tnt:NavigationList id="app-sideNavigation-list">
+          <tnt:NavigationListItem id="app-sideNavigation-list-item-1"
+            text="smart table标准用法"
+            expanded="true"
+            href="#/demo1">
+          </tnt:NavigationListItem>
+          <tnt:NavigationListItem id="app-sideNavigation-list-item-2"
+          text="smart table custom用法"
+          expanded="true"
+          href="#/demo2">
+        </tnt:NavigationListItem>
+        </tnt:NavigationList>
+      
+      </tnt:SideNavigation>
+    </tnt:sideContent>
+    <tnt:mainContents>
+      <App id="mainContents" />
+    </tnt:mainContents>
+  </tnt:ToolPage>
 </mvc:View>

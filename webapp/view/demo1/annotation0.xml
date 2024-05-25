@@ -1,0 +1,116 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference
+        Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+    </edmx:Reference>
+    <edmx:Reference
+        Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+    </edmx:Reference>
+    <!-- <edmx:Reference
+    Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication" />
+    </edmx:Reference> -->
+    <edmx:Reference
+        Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities" />
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/sap/ZFLIGHT_SRV/$metadata">
+        <edmx:Include Namespace="ZFLIGHT_SRV" Alias="SAP" />
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local1">
+            <!-- SAP是 ZFLIGHT_SRV的别名,Sflight是entity不是entityset-->
+            <Annotations Target="SAP.Sflight">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Carrid" />
+                            <PropertyValue Property="Label" String="{i18n&gt;carrid}" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Connid" />
+                            <PropertyValue Property="Label" String="{i18n&gt;connid}" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Fldate" />
+                            <PropertyValue Property="Label" String="{i18n&gt;fldate}" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Price" />
+                            <PropertyValue Property="Label" String="{i18n&gt;price}" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Planetype" />
+                            <PropertyValue Property="Label" String="{i18n&gt;planetype}" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Seatsmax" />
+                            <PropertyValue Property="Label" String="{i18n&gt;seatsmax}" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Seatsocc" />
+                            <PropertyValue Property="Label" String="{i18n&gt;seatsocc}" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="Paymentsum" />
+                            <PropertyValue Property="Label" String="{i18n&gt;paymentsum}" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SeatsoccB" />
+                            <PropertyValue Property="Label" String="{i18n&gt;seatsoccB}" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SeatsmaxF" />
+                            <PropertyValue Property="Label" String="{i18n&gt;seatsmaxF}" />
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="SeatsoccF" />
+                            <PropertyValue Property="Label" String="{i18n&gt;seatsoccF}" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+            </Annotations>
+            <Annotations Target="SAP.Sflight/Carrid">
+                <Annotation Term="Common.ValueList">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ScarrSet" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterOut">
+                                    <!-- Sflight中的Carrid -->
+                                    <PropertyValue Property="LocalDataProperty"
+                                        PropertyPath="Carrid" />
+                                    <!-- ScarrSet中的Carrid -->
+                                    <PropertyValue Property="ValueListProperty" String="Carrid" />
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <!-- ScarrSet中的Carrname -->
+                                    <PropertyValue Property="ValueListProperty" String="Carrname" />
+                                </Record>
+                                <!-- <Record Type="Common.ValueListParameterDisplayOnly"> -->
+                                <!-- ScarrSet中的Carrname -->
+                                <!-- <PropertyValue Property="ValueListProperty" String="Currcode"/> -->
+                                <!-- </Record> -->
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <!-- 设置必输 -->
+            <Annotations Target="SAP.ZFLIGHT_SRV_Entities/SflightSet">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="RequiresFilter" Bool="true" />
+                        <PropertyValue Property="RequiredProperties">
+                            <Collection>
+                                <PropertyPath>Carrid</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

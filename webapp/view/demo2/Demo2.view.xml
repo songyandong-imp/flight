@@ -1,0 +1,53 @@
+<mvc:View xmlns:smarttable="sap.ui.comp.smarttable"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
+    xmlns:smartfilterbar="sap.ui.comp.smartfilterbar" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+    controllerName="com.sap.flight.controller.demo2.Demo2" displayBlock="true" height="100%">
+    <Page title="Demo1" id="demo1-page" showHeader="false">
+        <VBox id="demo1-vbox" fitContainer="true">
+            <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="SflightSet"
+                persistencyKey="smartFilter_Explored">
+                <smartFilterBar:controlConfiguration>
+                    <smartFilterBar:ControlConfiguration id="carrid" index="1" key="Carrid" label="{i18n>carrid}" groupId="_BASIC"/>
+                    <smartFilterBar:ControlConfiguration id="fldate" index="2" key="Fldate" label="{i18n>fldate}" groupId="_BASIC" visibleInAdvancedArea="true">
+                        <smartFilterBar:customControl>
+                            <DateRangeSelection id="fldate_range" dateValue="{filterModel>/beginDate}" secondDateValue="{filterModel>/endDate}" displayFormat="yyyy-MM-dd"/>
+                        </smartFilterBar:customControl>
+                    </smartFilterBar:ControlConfiguration>
+                    <!-- <smartFilterBar:ControlConfiguration id="connid" index="3" key="Connid" groupId="_BASIC"></smartFilterBar:ControlConfiguration> -->
+                    <!-- <smartFilterBar:ControlConfiguration id="planetype" index="2" key="Planetype" groupId="_BASIC"></smartFilterBar:ControlConfiguration> -->
+                </smartFilterBar:controlConfiguration>
+
+                <!-- layout data used to make the table growing but the filter bar fixed -->
+                <smartFilterBar:layoutData>     
+                    <FlexItemData id="filterFlexItemData" shrinkFactor="1"></FlexItemData>
+                </smartFilterBar:layoutData>
+            </smartFilterBar:SmartFilterBar>
+            <smarttable:SmartTable id="smartTable" entitySet="SflightSet"
+                tableType="Table"
+                showFullScreenButton="false"
+                useExportToExcel="true"
+                beforeExport="onBeforeExport"
+                useVariantManagement="true"
+                useTablePersonalisation="true"
+                header="Flight"
+                showRowCount="true"
+                persistencyKey="disposicion"
+                enableAutoBinding="true"
+                smartFilterId="smartFilterBar"
+                beforeRebindTable="onBeforeRebindTable"
+                class="sapUiResponsiveContentPadding">
+                <smarttable:layoutData>
+                    <FlexItemData id="flexItemData" growFactor="1" baseSize="100%"
+                    ></FlexItemData>
+                </smarttable:layoutData>
+                <!-- <smarttable:customToolbar>
+                    <OverflowToolbar id="toolbar">
+                        <Button id="export" icon="sap-icon://excel-attachment" text="{i18n>export}" press=".onExport"/>
+                    </OverflowToolbar>
+                </smarttable:customToolbar> -->
+            </smarttable:SmartTable>
+        </VBox>
+    </Page>
+
+
+</mvc:View>
