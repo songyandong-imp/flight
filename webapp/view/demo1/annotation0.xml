@@ -89,10 +89,10 @@
                                     <!-- ScarrSet中的Carrname -->
                                     <PropertyValue Property="ValueListProperty" String="Carrname" />
                                 </Record>
-                                <!-- <Record Type="Common.ValueListParameterDisplayOnly"> -->
+                                <Record Type="Common.ValueListParameterDisplayOnly">
                                 <!-- ScarrSet中的Carrname -->
-                                <!-- <PropertyValue Property="ValueListProperty" String="Currcode"/> -->
-                                <!-- </Record> -->
+                                <PropertyValue Property="ValueListProperty" String="Currcode"/>
+                                </Record>
                             </Collection>
                         </PropertyValue>
                     </Record>

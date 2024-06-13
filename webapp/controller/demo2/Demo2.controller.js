@@ -14,8 +14,10 @@ sap.ui.define([
 
         return Controller.extend("com.sap.flight.controller.demo2.Demo2", {
             onInit: function () {
+                var oBeginDate = new Date();
+                oBeginDate.setDate(oBeginDate.getDate() - 30);
                 var oFilterModel = new JSONModel({
-                    beginDate: new Date(),
+                    beginDate: oBeginDate,
                     endDate: new Date()
                 });
                 this.getView().setModel(oFilterModel, "filterModel");

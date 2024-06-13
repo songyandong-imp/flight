@@ -1,4 +1,4 @@
-<mvc:View xmlns:smarttable="sap.ui.comp.smarttable"
+<mvc:View xmlns:core="sap.ui.core" xmlns:smarttable="sap.ui.comp.smarttable"
     xmlns:smartFilterBar="sap.ui.comp.smartfilterbar"
     xmlns:smartfilterbar="sap.ui.comp.smartfilterbar" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
     controllerName="com.sap.flight.controller.demo2.Demo2" displayBlock="true" height="100%">
@@ -7,23 +7,29 @@
             <smartFilterBar:SmartFilterBar id="smartFilterBar" entitySet="SflightSet"
                 persistencyKey="smartFilter_Explored">
                 <smartFilterBar:controlConfiguration>
-                    <smartFilterBar:ControlConfiguration id="carrid" index="1" key="Carrid" label="{i18n>carrid}" groupId="_BASIC"/>
-                    <smartFilterBar:ControlConfiguration id="fldate" index="2" key="Fldate" label="{i18n>fldate}" groupId="_BASIC" visibleInAdvancedArea="true">
+                    <smartFilterBar:ControlConfiguration id="carrid" index="1" key="Carrid"
+                        label="{i18n>carrid}" groupId="_BASIC" />
+                    <smartFilterBar:ControlConfiguration id="fldate" index="2" key="Fldate"
+                        label="{i18n>fldate}" groupId="_BASIC" visibleInAdvancedArea="true">
                         <smartFilterBar:customControl>
-                            <DateRangeSelection id="fldate_range" dateValue="{filterModel>/beginDate}" secondDateValue="{filterModel>/endDate}" displayFormat="yyyy-MM-dd"/>
+                            <DateRangeSelection id="fldate_range"
+                                dateValue="{filterModel>/beginDate}"
+                                secondDateValue="{filterModel>/endDate}" displayFormat="yyyy-MM-dd" />
                         </smartFilterBar:customControl>
                     </smartFilterBar:ControlConfiguration>
-                    <!-- <smartFilterBar:ControlConfiguration id="connid" index="3" key="Connid" groupId="_BASIC"></smartFilterBar:ControlConfiguration> -->
-                    <!-- <smartFilterBar:ControlConfiguration id="planetype" index="2" key="Planetype" groupId="_BASIC"></smartFilterBar:ControlConfiguration> -->
+                    <!-- <smartFilterBar:ControlConfiguration id="connid" index="3" key="Connid"
+                    groupId="_BASIC"></smartFilterBar:ControlConfiguration> -->
+                    <!-- <smartFilterBar:ControlConfiguration id="planetype" index="2"
+                    key="Planetype" groupId="_BASIC"></smartFilterBar:ControlConfiguration> -->
                 </smartFilterBar:controlConfiguration>
 
                 <!-- layout data used to make the table growing but the filter bar fixed -->
-                <smartFilterBar:layoutData>     
+                <smartFilterBar:layoutData>
                     <FlexItemData id="filterFlexItemData" shrinkFactor="1"></FlexItemData>
                 </smartFilterBar:layoutData>
             </smartFilterBar:SmartFilterBar>
             <smarttable:SmartTable id="smartTable" entitySet="SflightSet"
-                tableType="Table"
+                tableType="ResponsiveTable"
                 showFullScreenButton="false"
                 useExportToExcel="true"
                 beforeExport="onBeforeExport"
@@ -34,17 +40,38 @@
                 persistencyKey="disposicion"
                 enableAutoBinding="true"
                 smartFilterId="smartFilterBar"
+                ignoredFields="Price"
                 beforeRebindTable="onBeforeRebindTable"
                 class="sapUiResponsiveContentPadding">
                 <smarttable:layoutData>
-                    <FlexItemData id="flexItemData" growFactor="1" baseSize="100%"
+                    <FlexItemData id="flexItemData" growFactor="1" baseSize="0%"
                     ></FlexItemData>
                 </smarttable:layoutData>
-                <!-- <smarttable:customToolbar>
+                <smarttable:customToolbar>
                     <OverflowToolbar id="toolbar">
-                        <Button id="export" icon="sap-icon://excel-attachment" text="{i18n>export}" press=".onExport"/>
+                        <ToolbarSpacer id="ts1" />
+                        <OverflowToolbarButton id="sort" icon="sap-icon://sort" press=".onSort">
+                        </OverflowToolbarButton>
                     </OverflowToolbar>
-                </smarttable:customToolbar> -->
+                </smarttable:customToolbar>
+                <Table id="customtable" growing="true" growingThreshold="10" autoPopinMode="true" mode="SingleSelectLeft">
+                    <columns>
+                        <Column id="price">
+                            <customData>
+                                <core:CustomData key="p13nData"
+                                    value='\{"columnKey":"localPrice","leadingProperty":"Price","columnIndex":"0","type":"numeric","sortProperty":"Price","filterProperty":"Price"\}' />
+                            </customData>
+                            <Text text="Price" id="text-price"></Text>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem id="columnListItem1" type="Navigation">
+                            <cells>
+                                <Text id="value-price" text="{Price}"></Text>
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
             </smarttable:SmartTable>
         </VBox>
     </Page>

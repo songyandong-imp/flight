@@ -1,0 +1,55 @@
+<core:FragmentDefinition
+    xmlns:m="sap.m"
+    xmlns="sap.uxap"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+>
+    <ObjectPageLayout id="demo3Edit-ObjectPageLayout" enableLazyLoading="true" upperCaseAnchorBar="false">
+        <headerTitle>
+            <ObjectPageDynamicHeaderTitle id="demo3Edit-header_1">
+                <heading>
+                    <m:Title id="demo3Edit-title_1" text="edit" />
+                </heading>
+
+                <snappedTitleOnMobile>
+                    <m:Title id="demo3Edit-title_2" text="Header Title On Phone" />
+                </snappedTitleOnMobile>
+
+                <actions>
+                    <ObjectPageHeaderActionButton id="demo3Edit-button_1" text="Edit" type="Emphasized"
+                        hideText="false" />
+                    <ObjectPageHeaderActionButton id="demo3Edit-button_2" type="Transparent" text="Delete"
+                        hideText="false" hideIcon="true" />
+                    <ObjectPageHeaderActionButton id="demo3Edit-button_3" type="Transparent" text="Copy"
+                        hideText="false" hideIcon="true" />
+                    <ObjectPageHeaderActionButton id="demo3Edit-button_4" icon="sap-icon://action"
+                        type="Transparent" text="Share" tooltip="action" />
+                </actions>
+            </ObjectPageDynamicHeaderTitle>
+        </headerTitle>
+
+        <sections>
+            <ObjectPageSection id="demo3Edit-section_1" titleUppercase="false" title="my section">
+                <subSections>
+                    <ObjectPageSubSection id="demo3Edit-subSection_1" title="Section 1" mode="Expanded"
+                        titleUppercase="false">
+                        <blocks>
+
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+            <ObjectPageSection id="demo3Edit-section_2" titleUppercase="false" title="my section">
+                <subSections>
+                    <ObjectPageSubSection id="demo3Edit-subSection_2" title="Section 2" mode="Expanded"
+                        titleUppercase="false">
+                        <blocks>
+
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+        </sections>
+    </ObjectPageLayout>
+</core:FragmentDefinition>

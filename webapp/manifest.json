@@ -21,7 +21,8 @@
                 "type": "OData",
                 "settings": {
                     "annotations": [
-                        "annotation0"
+                        "annotation0",
+                        "annotation3"
                     ],
                     "localUri": "localService/metadata.xml",
                     "odataVersion": "2.0"
@@ -32,6 +33,13 @@
                 "uri": "view/demo1/annotation0.xml",
                 "settings": {
                     "localUri": "view/demo1/annotation0.xml"
+                }
+            },
+            "annotation3": {
+                "type": "ODataAnnotation",
+                "uri": "view/demo3/annotation3.xml",
+                "settings": {
+                    "localUri": "view/demo3/annotation3.xml"
                 }
             }
         }
@@ -76,8 +84,6 @@
                 "type": "sap.ui.model.resource.ResourceModel",
                 "settings": {
                     "bundleName": "com.sap.flight.i18n.i18n",
-                    "async": true,
-                    "fallbackLocale": "en",
                     "supportedLocales": [
                         "en",
                         "zh"
@@ -128,6 +134,26 @@
                     "name": "demo2",
                     "pattern": "demo2",
                     "target": "demo2"
+                },
+                {
+                    "name": "demo3",
+                    "pattern": "demo3",
+                    "target": "demo3"
+                },
+                {
+                    "name": "demo3New",
+                    "pattern": "demo3New",
+                    "target": "demo3Object"
+                },
+                {
+                    "name": "demo3Display",
+                    "pattern": "demo3Display",
+                    "target": "demo3Object"
+                },
+                {
+                    "name": "demo3Edit",
+                    "pattern": "demo3Edit",
+                    "target": "demo3Object"
                 }
             ],
             "targets": {
@@ -144,6 +170,20 @@
                     "clearControlAggregation": false,
                     "viewId": "demo2",
                     "viewName": "demo2/Demo2"
+                },
+                "demo3": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "demo3",
+                    "viewName": "demo3/Demo3"
+                },
+                "demo3Object": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "clearControlAggregation": false,
+                    "viewId": "demo3Object",
+                    "viewName": "demo3/Demo3Object"
                 }
             }
         },

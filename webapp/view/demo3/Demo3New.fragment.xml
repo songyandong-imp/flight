@@ -1,0 +1,80 @@
+<core:FragmentDefinition xmlns:smartfield="sap.ui.comp.smartfield"
+    xmlns:smartform="sap.ui.comp.smartform"
+    xmlns:m="sap.m"
+    xmlns="sap.uxap"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+>
+    <ObjectPageLayout id="demo3New-ObjectPageLayout" enableLazyLoading="true"
+        upperCaseAnchorBar="false">
+        <headerTitle>
+            <!-- <ObjectPageDynamicHeaderTitle id="demo3New-header_1">
+                <actions>
+                    <ObjectPageHeaderActionButton id="demo3New-button_1" text="Save"
+                        type="Emphasized"
+                        hideText="false" press=".onSave" />
+                    <ObjectPageHeaderActionButton id="demo3New-button_2" type="Transparent"
+                        text="Delete"
+                        hideText="false" hideIcon="true" />
+                    <ObjectPageHeaderActionButton id="demo3New-button_3" type="Transparent"
+                        text="Copy"
+                        hideText="false" hideIcon="true" />
+                    <ObjectPageHeaderActionButton id="demo3New-button_4" icon="sap-icon://action"
+                        type="Transparent" text="Share" tooltip="action" />
+                </actions>
+            </ObjectPageDynamicHeaderTitle> -->
+        </headerTitle>
+
+        <sections>
+            <ObjectPageSection id="demo3New-section_1" titleUppercase="false" title="my section">
+                <subSections>
+                    <ObjectPageSubSection id="demo3New-subSection_1" title="基本信息" mode="Expanded"
+                        titleUppercase="false">
+                        <blocks>
+                            <smartform:SmartForm id="demo3New-smartform" editable="true">
+                                <smartform:layout>
+                                    <smartform:ColumnLayout id="demo3New-columnLayout"
+                                        columnsM="2"
+                                        columnsL="3"
+                                        columnsXL="4" />
+                                </smartform:layout>
+                                <smartform:Group id="demo3New-smartform-group">
+                                    <smartform:GroupElement id="demo3New-groupelement1">
+                                        <smartfield:SmartField id="demo2New-carrid"
+                                            textLabel="Carrier ID"
+                                            value="{path:'Carrid',type:'sap.ui.model.type.String',constraints:{minLength:1,maxLength:10}}"
+                                            editable="true"></smartfield:SmartField>
+                                    </smartform:GroupElement>
+                                    <smartform:GroupElement id="demo3New-groupelement2">
+                                        <smartfield:SmartField id="demo2New-connid"
+                                            value="{Connid}"></smartfield:SmartField>
+                                    </smartform:GroupElement>
+                                    <smartform:GroupElement id="demo3New-groupelement3">
+                                        <smartfield:SmartField id="demo2New-fldate"
+                                            value="{path:'Fldate',type:'sap.ui.model.type.Date',formatOptions:{pattern:'yyyy-MM-dd',style:'short',UTC:true}}"></smartfield:SmartField>
+                                    </smartform:GroupElement>
+                                    <smartform:GroupElement id="demo3New-groupelement4">
+                                        <smartfield:SmartField id="demo2New-price"
+                                            value="{Price}"></smartfield:SmartField>
+                                    </smartform:GroupElement>
+                                </smartform:Group>
+                            </smartform:SmartForm>
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+            <ObjectPageSection id="demo3New-section_2" titleUppercase="false" title="my section">
+                <subSections>
+                    <ObjectPageSubSection id="demo3New-subSection_2" title="Section 2"
+                        mode="Expanded"
+                        titleUppercase="false">
+                        <blocks>
+
+                        </blocks>
+                    </ObjectPageSubSection>
+                </subSections>
+            </ObjectPageSection>
+        </sections>
+    </ObjectPageLayout>
+</core:FragmentDefinition>

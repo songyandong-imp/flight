@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Button id="demo3Object-footer-btn1" icon="sap-icon://alert" text="{= ${message>/}.length}"
+        visible="{= ${message>/}.length > 0}" type="Emphasized" press="onMessagePopoverPress" />
+    <ToolbarSpacer id="footer-space" />
+    <Button id="footer-btn2" text="Save" type="Accept" press=".onSave" />
+    <Button id="footer-btn4" text="Delete" type="Accept" press=".onDelete" />
+    <Button id="footer-btn3" text="Cancel" type="Accept" press=".onCancel" />
+    <!-- <Button id="footer-btn4" text="Has pending changes" press="onCheckHasPendingChanges" /> -->
+
+</core:FragmentDefinition>

@@ -1,15 +1,22 @@
 sap.ui.define([
-    "sap/ui/core/mvc/Controller"
+    "com/sap/flight/controller/BaseController",
+    // "com/sap/flight/lib/watermark"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller) {
+    function (BaseController) {
         "use strict";
 
-        return Controller.extend("com.sap.flight.controller.App", {
+        return BaseController.extend("com.sap.flight.controller.App", {
             onInit: function () {
 
+            },
+            onBeforeRendering:function(){
+                // watermark.load({ watermark_txt: "测试水印,1021002301,测试水印,100101010111101" });
+            },
+            onAfterRendering:function(){
+                // watermark.load({ watermark_txt: "测试水印,1021002301,测试水印,100101010111101" });
             }
         });
     });

@@ -13,6 +13,7 @@ sap.ui.define([
             onInit: function () {
 
             },
+           
             onInitSmartFilterBar: function (oEvent) {
                 var oSmartFilterBar = oEvent.getSource();
                 // var oControlFldate = oSmartFilterBar.getControlByKey("Fldate");
@@ -33,32 +34,7 @@ sap.ui.define([
                 };
 
                 oSmartFilterBar.setFilterData(oFilterData);
-                // oControlFldate.setValue(new Date());
-
-                // var dateFormat = sap.ui.core.format.DateFormat.getDateInstance({ pattern: "YYYY-MM-dd" });
-                // var datetoDay = dateFormat.format(new Date());
-                // // Create a new token
-                // var oToken = new sap.m.Token({
-                //     key: "Fldate", // any unique value
-                //     text: ">=" + datetoDay,  //Concatenate >= sign to date
-                //     tooltip: ">=" + datetoDay
-                // });
-                // // JSON to declare the values we want in actual filter
-                // var valueComp = {
-                //     "exclude": false,
-                //     "keyField": "Fldate",
-                //     "operation": "GE",
-                //     "tokenText": ">=" + datetoDay, //Concatenate >= sign to date
-                //     "value1": datetoDay,  // Actual date value
-                //     "value2": undefined
-                // }
-                // // add the above defined values to CustomData
-                // var customData = new sap.ui.core.CustomData("data", {
-                //     key: "custdata", // any unique value
-                //     value: valueComp
-                // }); // JSON declared above
-                // oToken.addCustomData(customData); // Add custom data to 
-                // oControlFldate.addToken(oToken); // add token to the filter field.
+   
 
             },
             onBeforeExport: function (oEvent) {
@@ -68,8 +44,8 @@ sap.ui.define([
             },
             onBeforeRebindTable: function (oEvent) {
                 var oTable = oEvent.getSource();
-                var oSmartFilterBar = this.byId("smartFilterBar");
-                var oFilterBarData = oSmartFilterBar.getFilterData();
+                // var oSmartFilterBar = this.byId("smartFilterBar");
+                // var oFilterBarData = oSmartFilterBar.getFilterData();
                 // 设置列的宽度
                 // var i = 0;
                 oTable.getTable().getColumns().forEach(function (oLine) {
@@ -109,7 +85,7 @@ sap.ui.define([
                 // for (var i = 0; i < aSelectedIndices.length; i++) {
                 // aSelectedItems.push(oTable.getContextByIndex(aSelectedIndices[i]).getObject());
                 // }
-                if (aSelectedIndices.length == 0) {
+                if (!aSelectedIndices.length) {
                     aSelectedIndices.forEach(index => {
                         var oContext = oTable.getContextByIndex(index);
                         var sPath = oContext.getPath();
